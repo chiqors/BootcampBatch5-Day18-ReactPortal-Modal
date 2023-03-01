@@ -1,8 +1,13 @@
 import { Form, Field } from 'react-final-form'
+import { useDispatch } from 'react-redux';
+import { setUser } from './actions';
 
-const MyForm = () => {
+const MyForm = ({ onClose }) => {
+  const dispatch = useDispatch();
+
   const onSubmit = (values) => {
-    alert(JSON.stringify(values, null, 2))
+    dispatch(setUser(values));
+    onClose();
   }
 
   const validate = (values) => {

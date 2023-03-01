@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import Modal from "./Modal"
 import MyForm from './MyForm'
+import Result from './Result'
 
 const BUTTON_WRAPPER_STYLES = {
     position: "relative",
@@ -22,11 +23,12 @@ export default function App() {
             <div style={BUTTON_WRAPPER_STYLES} onClick={() => console.log("clicked")}>
             <button onClick={() => setIsOpen(true)}>Open Modal</button>
                 <Modal open={isOpen} onClose={() => setIsOpen(false)}>
-                    <MyForm />
+                    <MyForm onClose={() => setIsOpen(false)} />
                 </Modal>
             </div>
             <div style={OTHER_CONTENT_STYLES}>
-                <p>Some other content</p>
+                <h1>Other content</h1>
+                <Result />
             </div>
         </>
     )
